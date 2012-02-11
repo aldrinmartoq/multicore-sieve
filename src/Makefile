@@ -1,14 +1,19 @@
 CC=clang
 N=1000000000
 
-all: sievemultip sievesingle
+all: sievemultip sievesingle sieveopenmp
+
+sieveopenmp:
+	gcc -fopenmp sieveopenmp.c -o sieveopenmp
 
 clean:
-	rm -f sievemultip sievesingle
+	rm -f sievemultip sievesingle sieveopenmp
 
 test: all
-	@echo single core
+	@echo
 	time ./sievesingle $(N)
-	@echo multip core
+	@echo
+	time ./sieveopenmp $(N)
+	@echo
 	time ./sievemultip $(N)
 

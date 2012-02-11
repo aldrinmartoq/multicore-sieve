@@ -1,5 +1,5 @@
 multicore-sieve
-=======================
+===============
 
 Ejemplo de código multicore con Grand Central Dispatch.
 
@@ -12,23 +12,31 @@ Ejemplo de código multicore con Grand Central Dispatch.
 
 Notar que en ninguna parte se especifica la cantidad de cores.
 
-Ejecución
----------
+Ejemplo de ejecución
+--------------------
 
     $ cd src
     $ make test
+    
     time ./sievesingle 1000000000
     total primos: 50847534
-          198.70 real       196.43 user         2.25 sys
-
+          198.05 real       195.73 user         2.31 sys
+    
+    time ./sieveopenmp 1000000000
+    threads: 4
+    total primes 50847534
+          129.05 real       482.46 user         4.94 sys
+    
     time ./sievemultip 1000000000
     total primos: 50847534
-          130.46 real       494.08 user         5.00 sys
+          130.08 real       485.81 user         5.11 sys
 
 
-Resultados
+Uso de CPU
 ----------
 
 ![](http://github.com/aldrinmartoq/multicore-sieve/raw/master/results/sievesingle.png)
+
+![](http://github.com/aldrinmartoq/multicore-sieve/raw/master/results/sieveopenmp.png)
 
 ![](http://github.com/aldrinmartoq/multicore-sieve/raw/master/results/sievemultip.png)
